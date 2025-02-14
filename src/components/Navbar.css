@@ -229,33 +229,41 @@
 
     .navbar-container {
         border-radius: 0;
-        height: auto;
-        min-height: 70px;
+        height: 70px;
+        padding: 5px 15px;
+        justify-content: center;
+        position: relative;
+    }
+
+    .navbar-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .navbar-logo img {
         height: 65px;
     }
 
-    .navbar-links {
-        top: 100%;
-        right: 0;
-        left: 0;
-        width: 100%;
-        border-radius: 0;
-        padding: 20px;
+    .mobile-menu {
+        display: none !important;
     }
 
-    .nav-link {
-        text-align: center;
-        padding: 18px 0;
-        font-size: 22px;
-    }
-
+    .navbar-links,
+    .navbar-links.active,
     .quote-button {
-        margin: 25px 0 0 0;
-        padding-top: 25px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: none !important;
+    }
+}
+
+/* Additional style for very small screens */
+@media (max-width: 360px) {
+    .navbar-container {
+        height: 60px;
+    }
+
+    .navbar-logo img {
+        height: 55px;
     }
 }
 
