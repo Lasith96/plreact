@@ -48,3 +48,21 @@
     cursor: not-allowed; /* Disabled cursor */
     transform: none; /* No transform */
   }
+
+/* Styles for Button component */
+.button-class {
+  background-color: #c85826;  /* Main brand color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Outfit', sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-class:hover {
+  background-color: #a64720;
+  transform: translateY(-2px);
+}

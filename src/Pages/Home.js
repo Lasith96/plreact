@@ -5,6 +5,7 @@ import commercialHero from '../assets/commercialhero.jpg';
 import Slider from '../components/Slider';
 import Button from '../components/button1.js';
 import aboutUsImage from '../assets/aboutus.png';
+import Footer from '../components/Footer';
 
 const Home = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -69,6 +70,26 @@ const Home = () => {
         return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-scroll');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const testimonialSection = document.querySelector('.testimonials-section');
+        if (testimonialSection) {
+            observer.observe(testimonialSection);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div className="home">
             <div className="hero-container">
@@ -92,7 +113,7 @@ const Home = () => {
             </div>
             
             <div className="content-wrapper">
-                <div className="about-section">
+                <div className="about-section" id="about">
                     <h2>About Us</h2>
                     <div className="about-content">
                         <div className="about-image">
@@ -114,59 +135,58 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="services-section">
-                    <div className="residential-services">
-                        <h2>Residential Cleaning Services</h2>
-                        <p className="service-intro">
-                            Your home deserves the best care, and at ProLion FloorCare, we specialize in deep cleaning and restoration to keep your living space fresh, clean, and allergen-free. Whether it's carpets, upholstery, vinyl, or tiles, our expert team ensures your home looks and feels revitalized.
-                        </p>
-                        
-                        <h3>Our residential services include:</h3>
-                        <ul className="service-list">
-                            <li>Carpet & upholstery cleaning and restoration</li>
-                            <li>Specialist stain removal</li>
-                            <li>Odor control and treatment</li>
-                            <li>Water damage restoration</li>
-                            <li>Anti-allergen treatment</li>
-                            <li>Oriental and natural sisal rug cleaning</li>
-                            <li>Vinyl, tile, grout, timber, and cork floor care</li>
-                        </ul>
-                        
-                        <p className="service-outro">
-                            We use industry-leading techniques and eco-friendly solutions to restore and maintain your home's surfaces. Let us bring your floors and furniture back to life with our professional touch!
-                        </p>
-                        
-                        <Button>📞 Book your home cleaning today!</Button>
-                    </div>
-
-                    <div className="commercial-services">
-                        <h2>Commercial Cleaning Services</h2>
-                        <p className="service-intro">
-                            A clean workspace is essential for productivity and a great first impression. ProLion FloorCare provides specialized commercial cleaning services designed to maintain the professional appearance of your business while ensuring a safe and hygienic environment.
-                        </p>
-                        
-                        <h3>Our commercial services include:</h3>
-                        <ul className="service-list">
-                            <li>Carpet & upholstery cleaning for offices, retail stores, and hotels</li>
-                            <li>Stain and odor removal for high-traffic areas</li>
-                            <li>Water damage restoration for unexpected spills or flooding</li>
-                            <li>Floor sealing and maintenance for vinyl, tile, grout, timber, and cork</li>
-                            <li>Specialized cleaning for restaurants, healthcare facilities, and educational institutions</li>
-                        </ul>
-                        
-                        <p className="service-outro">
-                            With certified professionals and high-grade cleaning solutions, we ensure that your commercial space stays spotless and well-maintained.
-                        </p>
-                        
-                        <Button>📞 Get a customized cleaning plan for your business today!</Button>
-                    </div>
+                <div className="residential-services" id="residential">
+                    <h2>Residential Cleaning Services</h2>
+                    <p className="service-intro">
+                        Your home deserves the best care, and at ProLion FloorCare, we specialize in deep cleaning and restoration to keep your living space fresh, clean, and allergen-free. Whether it's carpets, upholstery, vinyl, or tiles, our expert team ensures your home looks and feels revitalized.
+                    </p>
+                    
+                    <h3>Our residential services include:</h3>
+                    <ul className="service-list">
+                        <li>Carpet & upholstery cleaning and restoration</li>
+                        <li>Specialist stain removal</li>
+                        <li>Odor control and treatment</li>
+                        <li>Water damage restoration</li>
+                        <li>Anti-allergen treatment</li>
+                        <li>Oriental and natural sisal rug cleaning</li>
+                        <li>Vinyl, tile, grout, timber, and cork floor care</li>
+                    </ul>
+                    
+                    <p className="service-outro">
+                        We use industry-leading techniques and eco-friendly solutions to restore and maintain your home's surfaces. Let us bring your floors and furniture back to life with our professional touch!
+                    </p>
+                    
+                    <Button>📞 Book your home cleaning today!</Button>
                 </div>
 
-                <div className="testimonials-section">
+                <div className="commercial-services" id="commercial">
+                    <h2>Commercial Cleaning Services</h2>
+                    <p className="service-intro">
+                        A clean workspace is essential for productivity and a great first impression. ProLion FloorCare provides specialized commercial cleaning services designed to maintain the professional appearance of your business while ensuring a safe and hygienic environment.
+                    </p>
+                    
+                    <h3>Our commercial services include:</h3>
+                    <ul className="service-list">
+                        <li>Carpet & upholstery cleaning for offices, retail stores, and hotels</li>
+                        <li>Stain and odor removal for high-traffic areas</li>
+                        <li>Water damage restoration for unexpected spills or flooding</li>
+                        <li>Floor sealing and maintenance for vinyl, tile, grout, timber, and cork</li>
+                        <li>Specialized cleaning for restaurants, healthcare facilities, and educational institutions</li>
+                    </ul>
+                    
+                    <p className="service-outro">
+                        With certified professionals and high-grade cleaning solutions, we ensure that your commercial space stays spotless and well-maintained.
+                    </p>
+                    
+                    <Button>📞 Get a customized cleaning plan for your business today!</Button>
+                </div>
+
+                <div className="testimonials-section" id="testimonials">
                     <h2>What Our Clients Say</h2>
                     <Slider slides={testimonialSlides} />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

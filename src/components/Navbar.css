@@ -62,6 +62,7 @@
     white-space: nowrap;
     position: relative;
     padding: 5px 0;
+    cursor: pointer;
 }
 
 .nav-link::after {
@@ -277,4 +278,9 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Add smooth scrolling to the html element */
+html {
+    scroll-behavior: smooth;
 }
