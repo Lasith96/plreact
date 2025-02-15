@@ -21,8 +21,8 @@ body {
     right: 0;
     width: 100vw;
     height: 100vh;
-    min-height: 700px;
-    max-height: 1000px;
+    min-height: 100vh;
+    max-height: none;
     z-index: 1;
     overflow: hidden;
 }
@@ -72,27 +72,31 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
-    max-width: 800px;
+    width: 90%;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
     color: white;
-    margin-top: 150px;
+    min-height: 100vh;
+    margin-top: 0;
 }
 
 .hero-content h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(3.5rem, 8vw, 6rem);
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
 }
 
 .hero-content p {
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 400;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    line-height: 1.4;
 }
 
 /* Optional: Add slide indicators */
@@ -119,26 +123,26 @@ body {
 }
 
 /* Media Queries */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .hero-container {
-        height: 90vh;
-        min-height: 600px;
+        height: 100vh;
+        min-height: 100vh;
     }
 
     .hero-content {
-        margin-top: 100px;
+        margin-top: 0;
         padding: 20px;
+        justify-content: center;
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        margin-bottom: 1.5rem;
     }
 
     .hero-content p {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-        padding: 0 10px;
+        font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+        padding: 0 15px;
     }
 }
 
@@ -567,4 +571,66 @@ body {
     animation: slideInUp 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards,
                gradientShift 15s ease infinite;
     opacity: 1; /* Ensure it becomes fully visible */
+}
+
+/* Update the scroll arrow positioning */
+.scroll-arrow {
+    position: relative; /* Change from absolute to relative */
+    margin-top: 2rem; /* Add space between text and arrow */
+    cursor: pointer;
+    height: 60px; /* Add fixed height to contain the arrows */
+}
+
+.scroll-arrow span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 5px solid white;
+    border-right: 5px solid white;
+    transform: rotate(45deg);
+    margin: -10px auto; /* Center horizontally */
+    animation: scrollArrow 2s infinite;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .scroll-arrow {
+        margin-top: 1.5rem; /* Slightly less space on mobile */
+        height: 45px; /* Smaller height on mobile */
+    }
+    
+    .scroll-arrow span {
+        width: 15px;
+        height: 15px;
+        border-width: 4px;
+    }
+}
+
+/* Add back the animation keyframes and delays */
+.scroll-arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.scroll-arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes scrollArrow {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+/* Add hover effect */
+.scroll-arrow:hover span {
+    border-color: #FF6B00;
+    animation-play-state: paused;
 }

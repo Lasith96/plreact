@@ -107,6 +107,11 @@ const Home = () => {
                         <div className="hero-content">
                             <h1>{slide.title}</h1>
                             <p>{slide.description}</p>
+                            <div className="scroll-arrow">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
                     </div>
                 ))}
