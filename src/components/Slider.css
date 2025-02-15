@@ -24,6 +24,9 @@
 .slide {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y pinch-zoom;
 }
 
 .slide.active {
@@ -140,6 +143,7 @@
         padding: 0;
         overflow: hidden;
         transform: none !important;
+        touch-action: pan-y pinch-zoom;
     }
 
     .slide-content {
@@ -182,6 +186,10 @@
     .dot {
         width: 10px;
         height: 10px;
+    }
+
+    .slide {
+        transition: opacity 0.3s ease-in-out;
     }
 }
 
