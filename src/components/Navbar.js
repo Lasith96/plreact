@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import Button from './button1.js';
+import Button1 from './Button1';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +55,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="quote-button">
-                        <Button>Request a Quote</Button>
+                        <Button1>Request a Quote</Button1>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@ import './Home.css';
 import residentialHero from '../assets/residentialhero.jpg';
 import commercialHero from '../assets/commercialhero.jpg';
 import Slider from '../components/Slider';
-import Button from '../components/button1.js';
+import Button1 from '../components/Button1';
 import aboutUsImage from '../assets/aboutus.png';
 import Footer from '../components/Footer';
 
@@ -135,7 +135,7 @@ const Home = () => {
                             
                             <p>At ProLion FloorCare, we don't just clean – we restore, protect, and enhance the longevity of your floors, giving your space a fresh and polished look.</p>
                             
-                            <Button>📞 Contact us today and experience the ProLion difference!</Button>
+                            <Button1>📞 Contact us today and experience the ProLion difference!</Button1>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@ const Home = () => {
                         We use industry-leading techniques and eco-friendly solutions to restore and maintain your home's surfaces. Let us bring your floors and furniture back to life with our professional touch!
                     </p>
                     
-                    <Button>📞 Book your home cleaning today!</Button>
+                    <Button1>📞 Book your home cleaning today!</Button1>
                 </div>
 
                 <div className="commercial-services" id="commercial">
@@ -183,7 +183,7 @@ const Home = () => {
                         With certified professionals and high-grade cleaning solutions, we ensure that your commercial space stays spotless and well-maintained.
                     </p>
                     
-                    <Button>📞 Get a customized cleaning plan for your business today!</Button>
+                    <Button1>📞 Get a customized cleaning plan for your business today!</Button1>
                 </div>
 
                 <div className="testimonials-section" id="testimonials">

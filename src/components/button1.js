@@ -1,18 +1,24 @@
 // Button.js
 import React from 'react';
-import './button1.css'; // Import the CSS file
+import './Button1.css'; // Import the CSS file
 
-const Button = ({ children }) => {
+const Button = ({ children, text, service }) => {
   const handleClick = () => {
     const phone = '411169565'; // your phone number
-    const message = "Hi there, I am reaching out as i would like to get a quote for a cleaning service";
+    let message = "Hi there, I am reaching out as i would like to get a quote";
+    
+    // Add service-specific message
+    if (service) {
+      message += ` for ${service} service`;
+    }
+    
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank'); // opens WhatsApp in a new tab
   };
 
   return (
     <button onClick={handleClick} className="button-class">
-      {children}
+      {text || children}
     </button>
   );
 };
