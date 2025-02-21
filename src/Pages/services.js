@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './services.css';
-import Button1 from '../components/button1';
+import Button1 from '../components/Button1';
 import Footer from '../components/Footer';
 
 const services = [
